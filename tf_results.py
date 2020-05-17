@@ -72,8 +72,8 @@ class __init__():
         tokenizer = tokenization.FullTokenizer(vocab_file, do_lower_case)
         data = bert_encode("hello", tokenizer, max_seq_length)
         padded_inputs = tf.keras.preprocessing.sequence.pad_sequences(data, padding='post')
-        embedding = tf.keras.layers.Embedding( dtype=tf.int32, input_dim=128, output_dim=None
-        , mask_zero=True)
+        embedding = tf.keras.layers.Embedding( dtype=tf.float32, input_dim=128, output_dim=32
+        ,input_length=128, mask_zero=True)
         masked_output = embedding(padded_inputs)
         model.call(masked_output)
     def getAll():
