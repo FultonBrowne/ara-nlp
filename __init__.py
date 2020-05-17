@@ -4,7 +4,7 @@ import tf_results
 
 
 hostName = "localhost"
-serverPort = 8080
+serverPort = 5555
 tf_get = tf_results.__init__()
 def route(path):
         if path.startswith("/v0/"):

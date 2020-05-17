@@ -9,9 +9,6 @@ import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 # For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory
 import tokenization
 import os
-for dirname, _, filenames in os.walk('/kaggle/working'):
-    for filename in filenames:
-        print(os.path.join(dirname, filename))
 
 # Any results you write to the current directory are saved as output.
 import numpy as np
@@ -65,14 +62,19 @@ def build_model(bert_layer, max_len=512):
     return model
 class __init__():
     def __init__(self):
+        max_seq_length = 128  # Your choice here.
         module_url = "https://tfhub.dev/tensorflow/bert_en_uncased_L-24_H-1024_A-16/1"
         bert_layer = hub.KerasLayer(module_url, trainable=True)
-        model = build_model(bert_layer, max_len=160)
+        model = build_model(bert_layer, max_len=max_seq_length)
         model.summary()
         vocab_file = bert_layer.resolved_object.vocab_file.asset_path.numpy()
         do_lower_case = bert_layer.resolved_object.do_lower_case.numpy()
         tokenizer = tokenization.FullTokenizer(vocab_file, do_lower_case)
-        test_input = bert_encode(["lol"], tokenizer, max_len=160)
-        test_pred = model.predict(test_input)
+        data = bert_encode("hello", tokenizer, max_seq_length)
+        padded_inputs = tf.keras.preprocessing.sequence.pad_sequences(data, padding='post')
+        embedding = tf.keras.layers.Embedding( dtype=tf.int32, input_dim=128, output_dim=None
+        , mask_zero=True)
+        masked_output = embedding(padded_inputs)
+        model.call(masked_output)
     def getAll():
         print("test")
