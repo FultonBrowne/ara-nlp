@@ -1,4 +1,20 @@
+# coding=utf-8
+# Copyright 2019 The TensorFlow Authors. All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ==============================================================================
 """Tokenization classes implementation.
+
 The file is forked from:
 https://github.com/google-research/bert/blob/master/tokenization.py.
 """
@@ -182,6 +198,7 @@ class BasicTokenizer(object):
 
   def __init__(self, do_lower_case=True, split_on_punc=True):
     """Constructs a BasicTokenizer.
+
     Args:
       do_lower_case: Whether to lower case the input.
       split_on_punc: Whether to apply split on punctuations. By default BERT
@@ -308,14 +325,18 @@ class WordpieceTokenizer(object):
 
   def tokenize(self, text):
     """Tokenizes a piece of text into its word pieces.
+
     This uses a greedy longest-match-first algorithm to perform tokenization
     using the given vocabulary.
+
     For example:
       input = "unaffable"
       output = ["un", "##aff", "##able"]
+
     Args:
       text: A single token or whitespace separated tokens. This should have
         already been passed through `BasicTokenizer.
+
     Returns:
       A list of wordpiece tokens.
     """
@@ -398,14 +419,18 @@ def _is_punctuation(char):
 
 def preprocess_text(inputs, remove_space=True, lower=False):
   """Preprocesses data by removing extra space and normalize data.
+
   This method is used together with sentence piece tokenizer and is forked from:
   https://github.com/google-research/google-research/blob/master/albert/tokenization.py
+
   Args:
     inputs: The input text.
     remove_space: Whether to remove the extra space.
     lower: Whether to lowercase the text.
+
   Returns:
     The preprocessed text.
+
   """
   outputs = inputs
   if remove_space:
@@ -427,13 +452,17 @@ def preprocess_text(inputs, remove_space=True, lower=False):
 
 def encode_pieces(sp_model, text, sample=False):
   """Segements text into pieces.
+
   This method is used together with sentence piece tokenizer and is forked from:
   https://github.com/google-research/google-research/blob/master/albert/tokenization.py
+
+
   Args:
     sp_model: A spm.SentencePieceProcessor object.
     text: The input text to be segemented.
     sample: Whether to randomly sample a segmentation output or return a
       deterministic one.
+
   Returns:
     A list of token pieces.
   """
@@ -465,13 +494,16 @@ def encode_pieces(sp_model, text, sample=False):
 
 def encode_ids(sp_model, text, sample=False):
   """Segments text and return token ids.
+
   This method is used together with sentence piece tokenizer and is forked from:
   https://github.com/google-research/google-research/blob/master/albert/tokenization.py
+
   Args:
     sp_model: A spm.SentencePieceProcessor object.
     text: The input text to be segemented.
     sample: Whether to randomly sample a segmentation output or return a
       deterministic one.
+
   Returns:
     A list of token ids.
   """
@@ -482,12 +514,14 @@ def encode_ids(sp_model, text, sample=False):
 
 class FullSentencePieceTokenizer(object):
   """Runs end-to-end sentence piece tokenization.
+
   The interface of this class is intended to keep the same as above
   `FullTokenizer` class for easier usage.
   """
 
   def __init__(self, sp_model_file):
     """Inits FullSentencePieceTokenizer.
+
     Args:
       sp_model_file: The path to the sentence piece model file.
     """
