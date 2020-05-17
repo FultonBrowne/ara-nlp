@@ -1,0 +1,2 @@
+tensorflow >= 2.2.0   # CPU Version of TensorFlow.
+tensorflow_hub>=0.6.0
