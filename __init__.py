@@ -6,6 +6,7 @@ import tf_results
 hostName = "localhost"
 serverPort = 5555
 tf_get = tf_results.__init__()
+tf_get.getAll()
 def route(path):
         if path.startswith("/v0/"):
             print("going to parse")
