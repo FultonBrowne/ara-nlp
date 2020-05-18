@@ -6,10 +6,11 @@ import tf_results
 hostName = "localhost"
 serverPort = 5555
 tf_get = tf_results.__init__()
-tf_get.getAll()
+tf_get.getAll("hello ara")
 def route(path):
         if path.startswith("/v0/"):
-            print("going to parse")
+            if(path.startswith("/v0/pos")):
+                print("pos")
 class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
