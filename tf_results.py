@@ -32,9 +32,3 @@ class __init__():
         outputs = self.model(inputs)[0]
         predictions = torch.argmax(outputs, dim=2)
         print([(token, label_list[prediction]) for token, prediction in zip(tokens, predictions[0].tolist())])
-        nlp = pipeline('summarization')
-
-        sequence = "Hugging Face Inc. is a company based in New York City. Its headquarters are in DUMBO, therefore very" \
-                   "close to the Manhattan Bridge which is visible from the window."
-
-        print(nlp(sequence))
