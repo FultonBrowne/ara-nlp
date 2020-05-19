@@ -5,7 +5,7 @@ from transformers import *
 import os
 import numpy as np
 class __init__():
-    
+
     def __init__(self):
         self.model = AutoModelForTokenClassification.from_pretrained("dbmdz/bert-large-cased-finetuned-conll03-english")
         self.tokenizer = AutoTokenizer.from_pretrained("bert-base-cased")
@@ -32,4 +32,3 @@ class __init__():
         outputs = self.model(inputs)[0]
         predictions = torch.argmax(outputs, dim=2)
         print([(token, label_list[prediction]) for token, prediction in zip(tokens, predictions[0].tolist())])
-    
