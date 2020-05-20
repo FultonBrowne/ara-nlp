@@ -24,7 +24,7 @@ if device_name == '/device:GPU:0':
 
     print('Found GPU at: {}'.format(device_name))
 else:
-    raise SystemError('GPU device not found')
+    print('GPU device not found')
 
 if torch.cuda.is_available():    
 
