@@ -6,5 +6,8 @@ tokenizer = AutoTokenizer.from_pretrained("bert-large-uncased")
 
 model = AutoModelWithLMHead.from_pretrained("bert-large-uncased")
 
-csvdata = pb.read_csv('file.csv', encoding='utf-8')
- 
+df = pb.read_csv('data.csv', encoding='utf-8')
+
+for index, row in df.iterrows():
+    print(row["data"])
+    print(row["lable"])
