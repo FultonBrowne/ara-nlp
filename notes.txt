@@ -1,0 +1,25 @@
+data to look for:
+
+open
+
+call
+
+text
+
+email
+
+weather
+
+greeting
+
+personal question
+
+info question (pitures, video, news, just a search)
+
+turn something on/off (iot)
+
+toggle a setting (iot and on device)
+
+other
+
+15 so far
