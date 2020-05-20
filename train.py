@@ -14,6 +14,28 @@ import datetime
 
 import numpy as np
 
+import tensorflow as tf
+
+device_name = tf.test.gpu_device_name()
+
+if device_name == '/device:GPU:0':
+
+    print('Found GPU at: {}'.format(device_name))
+else:
+    raise SystemError('GPU device not found')
+
+if torch.cuda.is_available():    
+
+    device = torch.device("cuda")
+
+    print('There are %d GPU(s) available.' % torch.cuda.device_count())
+
+    print('We will use the GPU:', torch.cuda.get_device_name(0))
+
+else:
+    print('No GPU available, using the CPU instead.')
+    device = torch.device("cpu")
+
 tokenizer = AutoTokenizer.from_pretrained("bert-large-uncased")
 
 model = BertForSequenceClassification.from_pretrained("bert-large-uncased",
@@ -263,3 +285,20 @@ print("")
 print("Training complete!")
 
 print("Total training took {:} (h:mm:ss)".format(format_time(time.time()-total_t0)))
+
+output_dir = './model_save/'
+
+# Create output directory if needed
+if not os.path.exists(output_dir):
+    os.makedirs(output_dir)
+
+print("Saving model to %s" % output_dir)
+
+# Save a trained model, configuration and tokenizer using `save_pretrained()`.
+# They can then be reloaded using `from_pretrained()`
+model_to_save = model.module if hasattr(model, 'module') else model  # Take care of distributed/parallel training
+model_to_save.save_pretrained(output_dir)
+tokenizer.save_pretrained(output_dir)
+
+# Good practice: save your training arguments together with the trained model
+# torch.save(args, os.path.join(output_dir, 'training_args.bin'))
