@@ -249,7 +249,7 @@ for epoch_i in range(0, epochs):
         b_labels = batch[2].to(device)
         
         with torch.no_grad():        
-u
+
             (loss, logits) = model(b_input_ids, 
                                    token_type_ids=None, 
                                    attention_mask=b_input_mask,
