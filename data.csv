@@ -1,42 +1,41 @@
-sentence	labels
-what is the weather	weather
-what is on my calendar	calendar
-start a timer for 5 minutes	timer
-start a timer for 10 minutes	timer
-start a timer for 15 minutes	timer
-start a timer for 20 minutes	timer
-start a timer for 10 minutes and 5 seconds	timer
-start a timer for 1 hour	timer
-start a timer for 5 minutes	timer
-pause timer	timer_pause
-resume timer	timer_resume
-call bob	call
-email bob	email
-text bob	text
-hello	greet
-yo	greet
-how are you	greet
-what is your favorite dog	pq
-what is your favorite food	pq
-what is your favorite tv show	pq
-what is your favorite football team	pq
-what is your favorite soccer team	pq
-what is your favorite baseball team	pq
-what is your favorite basketball team	pq
-do you like chease burgers	pq
-do you like chease hotdogs	pq
-directions to the nearest starbucks	nav
-directions to the nearest taco bell	nav
-directions to the nearest round table pizza	nav
-directions to starbucks	nav
-directions to a gas station	nav
-where is the nearest library	nav
-how far is the nearest ikea	nav
-how is the safeway	nav
-how far is the airport	nav
-turn on my lights	iot_on
-start my dishwasher	iot_on
-turn on the speakers	iot_on
-turn on the lights in the kitchen	iot_on
-turn off the bedroom lights	iot_off
-	""
+	sentence	labels
+0	what is the weather	weather
+1	what is on my calendar	calendar
+2	start a timer for 5 minutes	timer
+3	start a timer for 10 minutes	timer
+4	start a timer for 15 minutes	timer
+5	start a timer for 20 minutes	timer
+6	start a timer for 10 minutes and 5 seconds	timer
+7	start a timer for 1 hour	timer
+8	start a timer for 5 minutes	timer
+9	pause timer	timer_pause
+10	resume timer	timer_resume
+11	call bob	call
+12	email bob	email
+13	text bob	text
+14	hello	greet
+15	yo	greet
+16	how are you	greet
+17	what is your favorite dog	pq
+18	what is your favorite food	pq
+19	what is your favorite tv show	pq
+20	what is your favorite football team	pq
+21	what is your favorite soccer team	pq
+22	what is your favorite baseball team	pq
+23	what is your favorite basketball team	pq
+24	do you like chease burgers	pq
+25	do you like chease hotdogs	pq
+26	directions to the nearest starbucks	nav
+27	directions to the nearest taco bell	nav
+28	directions to the nearest round table pizza	nav
+29	directions to starbucks	nav
+30	directions to a gas station	nav
+31	where is the nearest library	nav
+32	how far is the nearest ikea	nav
+33	how is the safeway	nav
+34	how far is the airport	nav
+35	turn on my lights	iot_on
+36	start my dishwasher	iot_on
+37	turn on the speakers	iot_on
+38	turn on the lights in the kitchen	iot_on
+39	turn off the bedroom lights	iot_off
