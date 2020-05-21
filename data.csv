@@ -1,4 +1,4 @@
-sentences	labels
+sentence	labels
 what is the weather	weather
 what is on my calendar	calendar
 start a timer for 5 minutes	timer
@@ -35,13 +35,8 @@ how far is the nearest ikea	nav
 how is the safeway	nav
 how far is the airport	nav
 turn on my lights	iot_on
-open the garage	iot_on
-start my car	iot_on
 start my dishwasher	iot_on
 turn on the speakers	iot_on
 turn on the lights in the kitchen	iot_on
 turn off the bedroom lights	iot_off
-turn off the music	iot_off
-turn off the kitchen lights	iot_off
-close the shades in the living room	iot_off
-close the garage	iot_off
+	""

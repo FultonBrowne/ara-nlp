@@ -300,3 +300,4 @@ def main():
     tokenizer.save_pretrained(output_dir)
     print("complete: ara is ready :]")
     print("(c) copywrite 2020 Fulton Browne this is open source under the GNU GPL 3.0 licence ")
+main()
