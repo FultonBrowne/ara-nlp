@@ -275,7 +275,7 @@ for epoch_i in range(0, epochs):
     training_stats.append(
         {
             'epoch': epoch_i + 1,
-            'Training Loss': avg_train_loss,u
+            'Training Loss': avg_train_loss,
             'Valid. Loss': avg_val_loss,
             'Valid. Accur.': avg_val_accuracy,
             'Training Time': training_time,
