@@ -249,7 +249,7 @@ for epoch_i in range(0, epochs):
         b_labels = batch[2].to(device)
         
         with torch.no_grad():        
-
+u
             (loss, logits) = model(b_input_ids, 
                                    token_type_ids=None, 
                                    attention_mask=b_input_mask,
@@ -275,7 +275,7 @@ for epoch_i in range(0, epochs):
     training_stats.append(
         {
             'epoch': epoch_i + 1,
-            'Training Loss': avg_train_loss,
+            'Training Loss': avg_train_loss,u
             'Valid. Loss': avg_val_loss,
             'Valid. Accur.': avg_val_accuracy,
             'Training Time': training_time,
@@ -290,17 +290,14 @@ print("Total training took {:} (h:mm:ss)".format(format_time(time.time()-total_t
 
 output_dir = './model_save/'
 
-# Create output directory if needed
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
 print("Saving model to %s" % output_dir)
 
-# Save a trained model, configuration and tokenizer using `save_pretrained()`.
-# They can then be reloaded using `from_pretrained()`
 model_to_save = model.module if hasattr(model, 'module') else model  # Take care of distributed/parallel training
 model_to_save.save_pretrained(output_dir)
 tokenizer.save_pretrained(output_dir)
-
-# Good practice: save your training arguments together with the trained model
-# torch.save(args, os.path.join(output_dir, 'training_args.bin'))
+torch.save(args, os.path.join(output_dir, 'training_args.bin'))
+print("complete: ara is ready :]")
+print("(c) copywrite 2020 Fulton Browne this is open source under the GNU GPL 3.0 licence ")
