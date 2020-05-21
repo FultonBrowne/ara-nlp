@@ -45,11 +45,12 @@ def main():
         output_attentions = False, 
         output_hidden_states = False,)
 
-    df = pb.read_csv('data.csv', encoding='utf-8')
+    df = pb.read_csv('data.csv', encoding='utf-8', header= 0, sep='\t')
+    print(df.get("sentence"))
 
     print('Number of training sentences: {:,}\n'.format(df.shape[0]))
 
-    df.sample(10)
+    print(df.sample(10))
 
     sentences = df.sentence.values
 
