@@ -1,6 +1,7 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import time
 import tf_results
+import os
 
 
 hostName = "localhost"
@@ -24,8 +25,10 @@ class MyServer(BaseHTTPRequestHandler):
         self.wfile.write(bytes("<p>This is an example web server.</p>", "utf-8"))
         self.wfile.write(bytes("</body></html>", "utf-8"))
 
-
-if __name__ == "__main__":
+if os.environ.get('train') == "pls train":
+    import train
+    train.main()
+elif __name__ == "__main__":
     webServer = HTTPServer((hostName, serverPort), MyServer)
     print("Server started http://%s:%s" % (hostName, serverPort))
 
