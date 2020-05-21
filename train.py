@@ -298,6 +298,5 @@ print("Saving model to %s" % output_dir)
 model_to_save = model.module if hasattr(model, 'module') else model  # Take care of distributed/parallel training
 model_to_save.save_pretrained(output_dir)
 tokenizer.save_pretrained(output_dir)
-torch.save(args, os.path.join(output_dir, 'training_args.bin'))
 print("complete: ara is ready :]")
 print("(c) copywrite 2020 Fulton Browne this is open source under the GNU GPL 3.0 licence ")
