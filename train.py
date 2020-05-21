@@ -41,7 +41,7 @@ def main():
     tokenizer = AutoTokenizer.from_pretrained("bert-large-uncased")
 
     model = BertForSequenceClassification.from_pretrained("bert-large-uncased",
-        num_labels = 2, # TODO: find the final number and change that
+        num_labels = 12,
         output_attentions = False, 
         output_hidden_states = False,)
 
