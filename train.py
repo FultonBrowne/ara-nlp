@@ -41,12 +41,12 @@ def main():
     tokenizer = AutoTokenizer.from_pretrained("bert-large-uncased")
 
     model = BertForSequenceClassification.from_pretrained("bert-large-uncased",
-        num_labels = 12,
+        num_labels = 13,
         output_attentions = False, 
         output_hidden_states = False,)
 
     df = pb.read_csv('data.csv', encoding='utf-8', header= 0, sep='\t')
-    mapmain = {"call": 0, "text": 1, "cal": 2, "email": 3, "weather": 4, "nav": 5, "pq": 6, "iot_off":7, "iot_on":8, "timer_resume":9,"timer_pause": 10, "timer": 11 }
+    mapmain = {"call": 0, "text": 1, "cal": 2, "email": 3, "weather": 4, "nav": 5, "pq": 6, "iot_off":7, "iot_on":8, "timer_resume":9,"timer_pause": 10, "timer": 11, "greet": 12 }
     df.label = [mapmain[item] for item in df.label] 
 
 
