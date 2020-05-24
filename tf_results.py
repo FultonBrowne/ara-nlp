@@ -7,7 +7,7 @@ import numpy as np
 class __init__():
 
     def __init__(self):
-        self.model = AutoModelForSequenceClassification.from_pretrained("bert-large")
+        self.model = AutoModelForSequenceClassification.from_pretrained("bert-large-uncased")
         self.tokenizer = AutoTokenizer.from_pretrained("./model_save")
 
     def getAll(self, data):
@@ -19,5 +19,5 @@ class __init__():
         inputs = self.tokenizer.encode(sequence, return_tensors="pt")
 
         outputs = self.model(inputs)[0]
-        predictions = torch.argmax(outputs, dim=2)
+        predictions = torch.argmax(outputs)
         print(predictions)
