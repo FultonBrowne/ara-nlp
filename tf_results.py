@@ -19,4 +19,4 @@ class __init__():
 
         outputs = self.model(inputs)[0]
         predictions = torch.argmax(outputs)
-        print(predictions)
+        data =predictions.tolist()
