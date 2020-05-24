@@ -20,3 +20,4 @@ class __init__():
         outputs = self.model(inputs)[0]
         predictions = torch.argmax(outputs)
         data =predictions.tolist()
+        print(data)
