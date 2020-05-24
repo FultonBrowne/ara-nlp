@@ -7,7 +7,7 @@ import os
 hostName = "localhost"
 serverPort = 5555
 tf_get = tf_results.__init__()
-tf_get.getAll("hello ara")
+tf_get.getAll("text bob")
 def route(path):
         if path.startswith("/v0/"):
             if(path.startswith("/v0/pos")):

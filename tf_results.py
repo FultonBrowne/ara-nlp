@@ -15,7 +15,6 @@ class __init__():
         sequence = data
 
         # Bit of a hack to get the tokens with the special tokens
-        tokens = self.tokenizer.tokenize(self.tokenizer.decode(self.tokenizer.encode(sequence)))
         inputs = self.tokenizer.encode(sequence, return_tensors="pt")
 
         outputs = self.model(inputs)[0]
