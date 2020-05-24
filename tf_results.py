@@ -8,7 +8,7 @@ class __init__():
 
     def __init__(self):
         self.model = AutoModelForSequenceClassification.from_pretrained("bert-large")
-        self.tokenizer = AutoTokenizer.from_pretrained("./results")
+        self.tokenizer = AutoTokenizer.from_pretrained("./model_save")
 
     def getAll(self, data):
 
