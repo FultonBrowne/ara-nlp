@@ -7,8 +7,8 @@ import numpy as np
 class __init__():
 
     def __init__(self):
-        self.model = AutoModelForTokenClassification.from_pretrained("dbmdz/bert-large-cased-finetuned-conll03-english")
-        self.tokenizer = AutoTokenizer.from_pretrained("bert-base-cased")
+        self.model = AutoModelForTokenClassification.from_pretrained("bert-large-uncased")
+        self.tokenizer = AutoTokenizer.from_pretrained("./results")
 
     def getAll(self, data):
         label_list = [
