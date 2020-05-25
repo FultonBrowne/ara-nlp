@@ -2,7 +2,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import time
 import tf_results
 import os
-
+import json
 
 hostName = "localhost"
 serverPort = 5555
@@ -10,8 +10,9 @@ tf_get = tf_results.__init__()
 tf_get.getAll("text bob")
 def route(path):
         if path.startswith("/v0/"):
-            if(path.startswith("/v0/pos")):
-                print("pos")
+            if(path.startswith("/v0/intent/?")):
+
+                tf_get.getAll(path.replace("/v0/intent/?"))
 class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
