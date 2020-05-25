@@ -19,5 +19,9 @@ class __init__():
 
         outputs = self.model(inputs)[0]
         predictions = torch.argmax(outputs)
+        import wordintmap
+        ogmap = wordintmap.getData()
+        inv_map = {v: k for k, v in ogmap.items()}
         data =predictions.tolist()
-        print(data)
+        text = inv_map[data]
+        print(text)
