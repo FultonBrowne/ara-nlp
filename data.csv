@@ -39,3 +39,6 @@
 37	turn on the speakers	iot_on
 38	turn on the lights in the kitchen	iot_on
 39	turn off the bedroom lights	iot_off
+40	call fred	call
+41	call fulton	call
+42	text fulton	text

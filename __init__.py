@@ -3,40 +3,18 @@ import time
 import tf_results
 import os
 import json
+from flask import Flask, request
 
 hostName = "localhost"
 serverPort = 5555
 tf_get = tf_results.__init__()
-tf_get.getAll("text bob")
-def route(path):
-        if path.startswith("/v0/"):
-            if(path.startswith("/v0/intent/?")):
+tf_get.getAll("text fulton")
+app = Flask(__name__)
+@app.route("/v0/intent")
+def hello():
+    data = request.args.get("input")
+    print(data)
+    return tf_get.getAll(data)
 
-                tf_get.getAll(path.replace("/v0/intent/?"))
-class MyServer(BaseHTTPRequestHandler):
-    def do_GET(self):
-        self.send_response(200)
-        print(self.path)
-        self.send_header("Content-type", "text/html")
-        self.end_headers()
-        route(self.path)
-        self.wfile.write(bytes("<html><head><title>https://pythonbasics.org</title></head>", "utf-8"))
-        self.wfile.write(bytes("<p>Request: %s</p>" % self.path, "utf-8"))
-        self.wfile.write(bytes("<body>", "utf-8"))
-        self.wfile.write(bytes("<p>This is an example web server.</p>", "utf-8"))
-        self.wfile.write(bytes("</body></html>", "utf-8"))
-
-if os.environ.get('train') == "pls train":
-    import train
-    train.main()
-elif __name__ == "__main__":
-    webServer = HTTPServer((hostName, serverPort), MyServer)
-    print("Server started http://%s:%s" % (hostName, serverPort))
-
-    try:
-        webServer.serve_forever()
-    except KeyboardInterrupt:
-        pass
-
-    webServer.server_close()
-    print("Server stopped.")
+if __name__ == "__main__":
+    app.run()
