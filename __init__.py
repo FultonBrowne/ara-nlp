@@ -9,7 +9,7 @@ hostName = "localhost"
 serverPort = 5555
 tf_get = tf_results.__init__()
 tf_get.getAll("text fulton")
-app = Flask(__name__)
+app = Flask(__name__)     
 @app.route("/v0/intent")
 def hello():
     data = request.args.get("input")

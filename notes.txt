@@ -12,3 +12,16 @@ call-
 text-
 email-
 nav-
+other/search
+-------------------------
+
+json format:
+{
+   version: "v0",
+   data:[
+   {
+   type:"intent",
+   data:"nav"
+   }
+   ]
+}
