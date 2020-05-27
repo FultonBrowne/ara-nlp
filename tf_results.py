@@ -20,4 +20,4 @@ class __init__():
         data =predictions.tolist()
         text = inv_map[data]
         print(data)
-        return text
+        return [{'type': 'intent', 'data': text}]
