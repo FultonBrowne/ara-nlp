@@ -7,13 +7,12 @@ import json
 from flask import Flask, request
 
 tf_get = tf_results.__init__()
-tf_get.getAll("text fulton")
 app = Flask(__name__)
 @app.route("/v0/intent")
 def intent():
     data = request.args.get("input")
     print(data)
-    jsondata = jsonformat.getData(tf_get.getAll(data))
+    jsondata = jsonformat.getData(tf_get.getIntent(data))
     return json.dumps(jsondata)
 
 if __name__ == "__main__":

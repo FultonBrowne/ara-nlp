@@ -10,7 +10,7 @@ class __init__():
         self.model = AutoModelForSequenceClassification.from_pretrained("./model_save")
         self.tokenizer = AutoTokenizer.from_pretrained("./model_save")
 
-    def getAll(self, data):
+    def getIntent(self, data):
         inputs = self.tokenizer.encode(data, return_tensors="pt")
         outputs = self.model(inputs)[0]
         predictions = torch.argmax(outputs)
