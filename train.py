@@ -7,7 +7,6 @@ import pandas as pb
 from transformers import *
 
 import os
-
 import time
 
 import random
@@ -17,6 +16,7 @@ import datetime
 import numpy as np
 
 import tensorflow as tf
+
 def main():
     device_name = tf.test.gpu_device_name()
 
@@ -39,11 +39,9 @@ def main():
         device = torch.device("cpu")
 
     tokenizer = AutoTokenizer.from_pretrained("bert-large-uncased")
-
-    model = BertForSequenceClassification.from_pretrained("bert-large-uncased",
-        num_labels = 13,
-        output_attentions = False, 
-        output_hidden_states = False,)
+    config = BertConfig.from_pretrained("bert-large-uncased", num_labels=13,
+            output_attentions=False, output_hidden_states=False,)
+    model = AutoModelForSequenceClassification.from_config(config)
 
     df = pb.read_csv('data.csv', encoding='utf-8', header= 0, sep='\t')
     import wordintmap
@@ -210,6 +208,7 @@ def main():
             b_input_ids = batch[0].to(device)
             b_input_mask = batch[1].to(device)
             b_labels = batch[2].to(device)
+            print(b_labels)
 
             model.zero_grad()        
 

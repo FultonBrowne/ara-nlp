@@ -7,8 +7,10 @@ import numpy as np
 class __init__():
 
     def __init__(self):
-        self.model = AutoModelForSequenceClassification.from_pretrained("./model_save")
-        self.tokenizer = AutoTokenizer.from_pretrained("./model_save")
+       self.tokenizer = AutoTokenizer.from_pretrained("bert-large-uncased")
+       config = BertConfig.from_pretrained("bert-large-uncased", num_labels=13,
+            output_attentions=False, output_hidden_states=False,)
+       self.model = AutoModelForSequenceClassification.from_config(config)
 
     def getIntent(self, data):
         inputs = self.tokenizer.encode(data, return_tensors="pt")
