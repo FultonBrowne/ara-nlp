@@ -14,6 +14,9 @@ def main():
     toInput = names.name.values
     callList = []
     textList = []
+    emailList = []
     for i in toInput:
         callList.append("call " + i)
+        textList.append("text " + i)
+        textList.append("message " + i)
 main()
