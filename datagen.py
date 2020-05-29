@@ -1,4 +1,4 @@
-import pandas
+import pandas as pd
 import os
 import urllib
 
@@ -12,3 +12,5 @@ def main():
     urllib.request.urlretrieve(
             "https://raw.githubusercontent.com/hadley/data-baby-names/master/baby-names.csv",
             "./data/names.csv")
+    names = pd.read_csv("./data/names.csv")
+    toInput = names.name.values
