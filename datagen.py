@@ -1,6 +1,6 @@
 import pandas as pd
 import os
-import urllib
+from download import download
 
 
 def main():
@@ -9,8 +9,11 @@ def main():
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     print("names")
-    urllib.request.urlretrieve(
-            "https://raw.githubusercontent.com/hadley/data-baby-names/master/baby-names.csv",
-            "./data/names.csv")
+    path = download("https://raw.githubusercontent.com/hadley/data-baby-names/master/baby-names.csv", "./data/names.csv")
     names = pd.read_csv("./data/names.csv")
     toInput = names.name.values
+    callList = []
+    textList = []
+    for i in toInput:
+        callList.append("call " + i)
+main()
