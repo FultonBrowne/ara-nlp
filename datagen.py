@@ -38,13 +38,15 @@ def main():
         allList.append(Template("how far is " + p, "nav"))
         allList.append(Template("weather in " + p, "weath"))
         allList.append(Template("what is the weather in " + p, "weath"))
+    ff = pd.read_csv("./data/ff.csv")
     for f in ff.names.values:
-        allList.append(Template())
+        allList.append(Template("directions to " + f, "nav"))
+        allList.append(Template("where is the nearest " + f, "nav"))
     mainData = pd.read_csv("data.csv", sep="\t")
     print(len(allList))
     for t in allList:
         print(len(mainData))
         mainData.loc[len(mainData)+1] = [len(mainData)+1, t.data, t.label]
-    df.to_csv("data.csv", sep='\t')
+    mainData.to_csv("data.csv", sep='\t')
     print("done")
 main()
