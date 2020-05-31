@@ -47,6 +47,10 @@ def main():
         print(len(mainData))
         mainData.loc[len(mainData)+1] = [len(mainData)+1, t.data, t.label]
     download("https://arafilestore.file.core.windows.net/ara-server-files/datasets_456949_861300_top10s.csv?sv=2019-02-02&ss=bfqt&srt=sco&sp=rwdlacup&se=2024-04-01T22:11:11Z&st=2019-12-19T15:11:11Z&spr=https&sig=lfjMHSahA6fw8enCbx0hFTE1uAVJWvPmC4m6blVSuuo%3D", "./data/music.csv")
+    music = pd.read_csv("./data/music.csv")
+    songs = music.name.values
+    for s in songs:
+        allList.append(Template("play " + s, "music"))
     mainData.to_csv("data.csv", sep='\t')
     print("done")
 main()
