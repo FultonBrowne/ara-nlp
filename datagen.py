@@ -23,11 +23,11 @@ def main():
     toInput = names.name.values
     allList = []
     for i in toInput:
-        allList.append(toFormat("call " + i,"call"))
-        allList.append(toFormat("dial " + i,"call"))
+        allList.append(toFormat("call " + i, "call"))
+        allList.append(toFormat("dial " + i, "call"))
         allList.append(toFormat("text " + i, "text"))
         allList.append(toFormat("message " + i, "text"))
-    placesLink="https://arafilestore.file.core.windows.net/ara-server-files/FastFoodRestaurants.csv?sv=2019-02-02&ss=bfqt&srt=sco&sp=rwdlacup&se=2024-04-01T22:11:11Z&st=2019-12-19T15:11:11Z&spr=https&sig=lfjMHSahA6fw8enCbx0hFTE1uAVJWvPmC4m6blVSuuo%3D"
+    placesLink = "https://arafilestore.file.core.windows.net/ara-server-files/FastFoodRestaurants.csv?sv=2019-02-02&ss=bfqt&srt=sco&sp=rwdlacup&se=2024-04-01T22:11:11Z&st=2019-12-19T15:11:11Z&spr=https&sig=lfjMHSahA6fw8enCbx0hFTE1uAVJWvPmC4m6blVSuuo%3D"
     download(placesLink, "./data/ff.csv")
     download("https://developers.google.com/adwords/api/docs/appendix/geo/geotargets-2020-03-03.csv", "./data/places.csv")
     places = pd.read_csv("./data/places.csv").names.values
@@ -39,7 +39,7 @@ def main():
     ff = pd.read_csv("./data/ff.csv")
     for f in ff.names.values:
         allList.append(Template("directions to " + f, "nav"))
-        allList.append(Template(f + " near by","nav"))
+        allList.append(Template(f + " near by", "nav"))
         allList.append(Template("where is the nearest " + f, "nav"))
     mainData = pd.read_csv("data.csv", sep="\t")
     print(len(allList))
@@ -48,9 +48,13 @@ def main():
         mainData.loc[len(mainData)+1] = [len(mainData)+1, t.data, t.label]
     download("https://arafilestore.file.core.windows.net/ara-server-files/datasets_456949_861300_top10s.csv?sv=2019-02-02&ss=bfqt&srt=sco&sp=rwdlacup&se=2024-04-01T22:11:11Z&st=2019-12-19T15:11:11Z&spr=https&sig=lfjMHSahA6fw8enCbx0hFTE1uAVJWvPmC4m6blVSuuo%3D", "./data/music.csv")
     music = pd.read_csv("./data/music.csv")
-    songs = music.name.values
+    songs = music.title.values
+    artist = music.artist.values
     for s in songs:
         allList.append(Template("play " + s, "music"))
+    for a in artist:
+        allList.append(Template("play " + a, "music"))
+        allList.append(Template("shuffle " + a, "music"))
     mainData.to_csv("data.csv", sep='\t')
     print("done")
 main()
