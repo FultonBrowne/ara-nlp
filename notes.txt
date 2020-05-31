@@ -1,17 +1,16 @@
 data to look for:
 
-iot_off-
-iot_on-
-timer-
-timer_resume-
-timer_pause-
-pq-
+utilrs
+pq
+music
 weather-
-cal-
+cal
 call-
 text-
 email-
 nav-
+ynq (yes no)
+
 other/search
 -------------------------
 

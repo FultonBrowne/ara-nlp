@@ -2,8 +2,6 @@ import pandas as pd
 import os
 from download import download
 
-0
-
 class Template(object):
     data = ""
     label = ""
@@ -41,12 +39,14 @@ def main():
     ff = pd.read_csv("./data/ff.csv")
     for f in ff.names.values:
         allList.append(Template("directions to " + f, "nav"))
+        allList.append(Template(f + " near by","nav"))
         allList.append(Template("where is the nearest " + f, "nav"))
     mainData = pd.read_csv("data.csv", sep="\t")
     print(len(allList))
     for t in allList:
         print(len(mainData))
         mainData.loc[len(mainData)+1] = [len(mainData)+1, t.data, t.label]
+    download("https://arafilestore.file.core.windows.net/ara-server-files/datasets_456949_861300_top10s.csv?sv=2019-02-02&ss=bfqt&srt=sco&sp=rwdlacup&se=2024-04-01T22:11:11Z&st=2019-12-19T15:11:11Z&spr=https&sig=lfjMHSahA6fw8enCbx0hFTE1uAVJWvPmC4m6blVSuuo%3D", "./data/music.csv")
     mainData.to_csv("data.csv", sep='\t')
     print("done")
 main()
