@@ -4,13 +4,11 @@ utilrs
 pq
 music-
 weather-
-cal
 call-
 text-
 email-
 nav-
-ynq (yes no)
-
+questions
 other/search
 -------------------------
 

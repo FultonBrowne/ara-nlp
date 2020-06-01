@@ -1,12 +1,12 @@
-import pandas as pd
 import os
+import io
+import requests
+import pandas as pd
 from download import download
 
 class Template(object):
     data = ""
     label = ""
-
-    # The class "constructor" - It's actually an initializer 
     def __init__(self, data, label):
         self.data = data
         self.label = label
@@ -55,6 +55,9 @@ def main():
     for a in artist:
         allList.append(Template("play " + a, "music"))
         allList.append(Template("shuffle " + a, "music"))
+    url = "https://storage.googleapis.com/kagglesdsdata/datasets%2F2735%2F4525%2FS10_question_answer_pairs.txt?GoogleAccessId=gcp-kaggle-com@kaggle-161607.iam.gserviceaccount.com&Expires=1591301839&Signature=KtHIptWOD0wI5P7ixaWkrkAxQHVR6oHJ0%2B2qg%2BCeFwqi8RyMwqI%2BomQQRgLVbfWTGSbURm1g3Y3vHaXzMxj0RgrcQOm40GgjasKvJ9P5Eclwmvt3ykQCD1UkJ59z48UbJa2aUilvGYxpPwkS0070vSrFBGRSBRUQ8K%2FTqyOEi7HXe2ZxPHdq6NTSu6TGUnNUvMjGkiHOyO%2BLizIdXav5JziHxA99zuB7p3hADynkJRMhhbT7NOYbB5zhJFUL6bj4wLTYJijwpSAzcQpjthcrSryJFL82you1GOugNEd7L1a7MzJMoQqMKE7k%2FHIEq5wnhUH%2BNxyZvgyj1nW8G5CklA%3D%3D"
+    s=requests.get(url).content
+    c=pd.read_csv(io.StringIO(s.decode('utf-8', errors = "ignore")), sep="\t")
     mainData.to_csv("data.csv", sep='\t')
     print("done")
 main()
