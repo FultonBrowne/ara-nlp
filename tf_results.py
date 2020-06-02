@@ -60,9 +60,11 @@ class __init__():
         text = inv_map[data]
         print(data)
         return [{'type': 'intent', 'data': text}]
-    def getChuncks(self, data, lang):
+    def getPos(self, data, lang):
         print(data)
         datasets = self.spacymods.get(lang)
+        if(datasets == None):
+            datasets = self.spacymods.get("en")
         doc = datasets(data)
         print([(w.text, w.pos_) for w in doc])
         return [{"type":w.pos_, "data":w.text} for w in doc]
