@@ -69,4 +69,13 @@ class __init__():
         print([(w.text, w.pos_) for w in doc])
         return [{"type":w.pos_, "data":w.text} for w in doc]
 
+    def getDpos(self, data, lang):
+        print(data)
+        datasets = self.spacymods.get(lang)
+        if(datasets == None):
+            datasets = self.spacymods.get("en")
+        doc = datasets(data)
+        print([(w.text, w.pos_) for w in doc])
+        return [{"type":w.tag_, "data":w.text} for w in doc]
+
         

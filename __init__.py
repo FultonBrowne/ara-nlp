@@ -19,6 +19,11 @@ def pos():
     data = request.args.get("input")
     lang = request.args.get("lang")
     return json.dumps(jsonformat.getData(tf_get.getPos(data, lang)))
+@app.run("/v0/dpos")
+def dpos():
+    data = request.args.get("input")
+    lang = request.args.get("lang")
+    return json.dumps(jsonformat.getData(tf_get.getDpos(data, lang)))
 
 if __name__ == "__main__":
     app.run()
