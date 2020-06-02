@@ -17,7 +17,7 @@ def intent():
 @app.route("/v0/pos")
 def pos():
     data = request.args.get("input")
-    return tf_get.getChuncks(data, "en")
+    return json.dumps(jsonformat.getData(tf_get.getChuncks(data, "en")))
 
 if __name__ == "__main__":
     app.run()

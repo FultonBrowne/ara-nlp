@@ -65,6 +65,6 @@ class __init__():
         datasets = self.spacymods.get(lang)
         doc = datasets(data)
         print([(w.text, w.pos_) for w in doc])
-        return "test"
+        return [{"type":w.pos_, "data":w.text} for w in doc]
 
         
