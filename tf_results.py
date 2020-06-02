@@ -12,7 +12,7 @@ class __init__():
             output_attentions=False, output_hidden_states=False,)
        self.model = AutoModelForSequenceClassification.from_config(config)
        self.model.eval()
-       self.spacymods = {"en": spacy.load("en_core_web_sm")}
+       self.spacymods = {"en": spacy.load("en_core_web_sm"), "de": spacy.load("de_core_news_sm")}
 
        
 
