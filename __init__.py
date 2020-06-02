@@ -14,6 +14,10 @@ def intent():
     print(data)
     jsondata = jsonformat.getData(tf_get.getIntent(data))
     return json.dumps(jsondata)
+@app.route("/v0/pos")
+def pos():
+    data = request.args.get("input")
+    return tf_get.getChuncks(data, "en")
 
 if __name__ == "__main__":
     app.run()

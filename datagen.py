@@ -60,7 +60,7 @@ def main():
     c=pd.read_csv(io.StringIO(s.decode('utf-8', errors = "ignore")), sep="\t")
     qs = c.Names.values
     for q in qs:
-        allList.append(Template(q, "ynq"))
+        allList.append(Template(q, "q"))
     mainData.to_csv("data.csv", sep='\t')
     print("done")
 main()

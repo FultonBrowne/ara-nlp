@@ -1,4 +1,5 @@
 import torch
+import spacy
 import transformers
 from transformers import *
 import os
@@ -11,6 +12,10 @@ class __init__():
             output_attentions=False, output_hidden_states=False,)
        self.model = AutoModelForSequenceClassification.from_config(config)
        self.model.eval()
+       self.spacymods = {"en": spacy.load("en_core_web_sm")}
+
+       
+
     def tokenizerfun(self, text):
         return input_ids
 
@@ -55,3 +60,11 @@ class __init__():
         text = inv_map[data]
         print(data)
         return [{'type': 'intent', 'data': text}]
+    def getChuncks(self, data, lang):
+        print(data)
+        datasets = self.spacymods.get(lang)
+        doc = datasets(data)
+        print([(w.text, w.pos_) for w in doc])
+        return "test"
+
+        
