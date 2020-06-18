@@ -34,6 +34,11 @@ def dep():
     data = request.args.get("input")
     lang = request.args.get("lang")
     return Response(json.dumps(jsonformat.getData(tf_get.dep(data, lang))), mimetype="application/json")
+@app.route("/v0/search")
+def search():
+    data = request.args.get("input")
+    lang = request.args.get("lang")
+    return Response(json.dumps(jsonformat.getData(tf_get.search(data, lang))), mimetype="application/json")
 
 if __name__ == "__main__":
     app.run()

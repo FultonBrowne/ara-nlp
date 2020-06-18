@@ -94,4 +94,14 @@ class __init__():
         doc = datasets(data)
         print([(w.text, w.pos_) for w in doc])
         return [{"type":w.dep_, "data":w.text} for w in doc]
-        
+
+    def search(self, data, lang):
+        print(data)
+        datasets = self.spacymods.get(lang)
+        if(datasets == None):
+            datasets = self.spacymods.get("en")
+        doc = datasets(data)
+        print([(w.text, w.pos_) for w in doc])
+        return [{"type":[w.dep_, w.pos_,w.tag_, w.lemma_], "data":w.text} for w in doc]
+
+
