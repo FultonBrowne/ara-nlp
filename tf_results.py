@@ -7,7 +7,7 @@ import numpy as np
 class __init__():
 
     def __init__(self):
-       self.tokenizer = AutoTokenizer.from_pretrained("./model_save")
+#       self.tokenizer = AutoTokenizer.from_pretrained("./model_save")
 #       config = BertConfig.from_pretrained("./model_save", num_labels=13,
 #            output_attentions=False, output_hidden_states=False,)
 #       self.model = AutoModelForSequenceClassification.from_config(config)
