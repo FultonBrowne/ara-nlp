@@ -41,4 +41,4 @@ def search():
     return Response(json.dumps(jsonformat.getData(tf_get.search(data, lang))), mimetype="application/json")
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host= "0.0.0.0")
