@@ -40,5 +40,9 @@ def search():
     lang = request.args.get("lang")
     return Response(json.dumps(jsonformat.getData(tf_get.search(data, lang))), mimetype="application/json")
 
+@app.route("/v0")
+def search():
+    return Response(json.dumps({"system": "ok"}), mimetype="application/json")
+
 if __name__ == "__main__":
     app.run(host= "0.0.0.0")
